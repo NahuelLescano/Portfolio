@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import Social from '../components/Social.astro';
+import LinkedInIcon from '../icons/LinkedIn.astro';
+import GithubIcon from '../icons/Github.astro';
+import EmailIcon from '../icons/Email.astro';
+---
+
+<Layout
+    title="Portfolio de Nahuel - Desarrollador y Programador Web junior"
+    description="Contratame para crear tu aplicación web o móvil. Desarrollador web. Especializado en crear aplicaciones únicas"
+>
+    <main>
+        <section class="w-full mx-auto lg:w-[740px] py-44">
+            <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+                Hey, soy Nahuel <a
+                    href="https://www.linkedin.com/in/nahuel-lescano-906a2618b/"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex justify-center items-center">
+                    <Badge>Disponible para trabajar</Badge>
+                </a>
+            </h1>
+            <h2 class="text-2xl text-wrap">
+                <span>+2 años de experiencia.</span>
+                <span class="text-yellow-200/90"> Desarrollador web.</span>
+                <span> De Buenos Aires, Argentina.</span>
+                <span class="opacity-70"> Especializado en crear páginas únicas.</span>
+            </h2>
+            <nav class="flex gap-x-2 mt-4">
+                <Social href="https://www.linkedin.com/in/nahuel-lescano-906a2618b/">
+                    <LinkedInIcon class="size-6" />
+                    LinkedIn
+                </Social>
+
+                <Social href="https://github.com/NahuelLescano">
+                    <GithubIcon class="size-6" />
+                    Github
+                </Social>
+
+                <Social>
+                    <EmailIcon class="size-6" />
+                    nahuellescano1012@gmail.com
+                </Social>
+            </nav>
+        </section>
+    </main>
+</Layout>
