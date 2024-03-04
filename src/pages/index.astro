@@ -2,18 +2,21 @@
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
 import Social from '../components/Social.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
 import LinkedInIcon from '../icons/LinkedIn.astro';
 import GithubIcon from '../icons/Github.astro';
 import EmailIcon from '../icons/Email.astro';
+import BriefcaseIcon from '../icons/Briefcase.astro';
 ---
 
 <Layout
     title="Portfolio de Nahuel - Desarrollador y Programador Web junior"
     description="Contratame para crear tu aplicación web o móvil. Desarrollador web. Especializado en crear aplicaciones únicas"
 >
-    <main>
-        <section class="w-full mx-auto lg:w-[740px] py-44">
-            <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+    <main class="px-4">
+        <SectionContainer class="py-40 px-22">
+            <h1 class="text-white text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-10">
                 Hey, soy Nahuel <a
                     href="https://www.linkedin.com/in/nahuel-lescano-906a2618b/"
                     target="_blank"
@@ -44,6 +47,13 @@ import EmailIcon from '../icons/Email.astro';
                     nahuellescano1012@gmail.com
                 </Social>
             </nav>
-        </section>
+        </SectionContainer>
+        <SectionContainer id="experencias">
+            <h2 class="text-2xl font-semibold mb-5 flex items-center gap-x-2">
+                <BriefcaseIcon class="size-8" />
+                Experiencia laboral
+            </h2>
+            <Experience />
+        </SectionContainer>
     </main>
 </Layout>
