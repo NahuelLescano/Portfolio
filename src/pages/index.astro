@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
 import Social from '../components/Social.astro';
 import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import LinkedInIcon from '../icons/LinkedIn.astro';
 import GithubIcon from '../icons/Github.astro';
 import EmailIcon from '../icons/Email.astro';
 import BriefcaseIcon from '../icons/Briefcase.astro';
+import CodeIcon from '../icons/Code.astro';
 ---
 
 <Layout
@@ -15,8 +17,8 @@ import BriefcaseIcon from '../icons/Briefcase.astro';
     description="Contratame para crear tu aplicación web o móvil. Desarrollador web. Especializado en crear aplicaciones únicas"
 >
     <main class="px-4">
-        <SectionContainer class="py-40 px-22">
-            <h1 class="text-white text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        <SectionContainer class="py-16 mt-10 gap-x-4 md:px-35">
+            <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
                 Hey, soy Nahuel <a
                     href="https://www.linkedin.com/in/nahuel-lescano-906a2618b/"
                     target="_blank"
@@ -25,35 +27,43 @@ import BriefcaseIcon from '../icons/Briefcase.astro';
                     <Badge>Disponible para trabajar</Badge>
                 </a>
             </h1>
-            <h2 class="text-2xl text-wrap">
+            <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
                 <span>+2 años de experiencia.</span>
                 <span class="text-yellow-200/90"> Desarrollador web.</span>
                 <span> De Buenos Aires, Argentina.</span>
                 <span class="opacity-70"> Especializado en crear páginas únicas.</span>
             </h2>
-            <nav class="flex gap-x-2 mt-4">
+            <nav class="flex mt-8 flex-wrap">
                 <Social href="https://www.linkedin.com/in/nahuel-lescano-906a2618b/">
-                    <LinkedInIcon class="size-6" />
+                    <LinkedInIcon class="size-4 md:size-6" />
                     LinkedIn
                 </Social>
 
                 <Social href="https://github.com/NahuelLescano">
-                    <GithubIcon class="size-6" />
+                    <GithubIcon class="size-4 md:size-6" />
                     Github
                 </Social>
 
-                <Social>
-                    <EmailIcon class="size-6" />
+                <Social href="mailto:nahuellescano1012@gmail.com">
+                    <EmailIcon class="size-4 md:size-6" />
                     nahuellescano1012@gmail.com
                 </Social>
             </nav>
         </SectionContainer>
         <SectionContainer id="experencias">
-            <h2 class="text-2xl font-semibold mb-5 flex items-center gap-x-2">
+            <h2 class="text-3xl font-semibold mb-5 flex items-center gap-x-2">
                 <BriefcaseIcon class="size-8" />
                 Experiencia laboral
             </h2>
             <Experience />
+        </SectionContainer>
+
+        <SectionContainer id="proyectos">
+            <h2 class="text-3xl font-semibold mb-5 flex items-center gap-x-2">
+                <CodeIcon class="size-8" />
+                Proyectos
+            </h2>
+            <Projects />
         </SectionContainer>
     </main>
 </Layout>

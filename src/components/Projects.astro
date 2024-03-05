@@ -1,0 +1,54 @@
+---
+import ReactIcon from "../icons/Reactjs.astro";
+
+const TAGS = {
+    REACT: {
+        name: "React.js",
+        class: "bg-black text-sky",
+        icon: ReactIcon,
+    },
+};
+const PROJECTS = [
+    {
+        title: "Bodu Games - Proyecto de Henry grupal",
+        description: " Una página dónde podes encontrar tus juegos de mesa favoritos",
+        link: "https://front-project-board-games.vercel.app/",
+        github: "https://github.com/dasava11/front_project_board_games",
+        tags: [TAGS.REACT],
+        image: "/Projects/bodu.webp",
+    },
+];
+---
+
+{
+    PROJECTS.map(({ image, title, description, link, github, tags }) => (
+        <article>
+            <h1 class="text-xl font-semibold mb-2">{title}</h1>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex flex-row gap-x-2">
+                <li>
+                    {
+                        tags.map(tag => (
+                            <li>
+                                <span class={`
+                                                ${tag.class}
+                                                flex justify-center items-center gap-x-2
+                                                rounded-full text-xs
+                                                px-2 py-2
+                                            `}>
+                                    <tag.icon class="size-6" />
+                                    {tag.name}
+                                </span>
+                            </li>
+                        ))
+                    }
+                </li>
+            </ul>
+            <img
+                class="rounded-full shadow-2xl shadow-while/10"
+                src={image}
+                alt={`Captura de pantalla del proyecto ${title}`}
+            />
+        </article>
+    ))
+}
