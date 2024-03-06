@@ -7,4 +7,4 @@
     <p></p>
 </div>
 
-<p>Este portfolio está basado en [Midu.dev](https://porfolio.dev/ "Portfolio de ejemplo de midudev").</p>
+Este portfolio está basado en [Midu.dev](https://porfolio.dev/ "Portfolio de ejemplo de midudev")
