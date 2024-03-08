@@ -1,8 +1,10 @@
 ---
+import LinkButton from "@/components/LinkButton.astro";
 import ReactIcon from "@/icons/Reactjs.astro";
 import ReduxIcon from "@/icons/Redux.astro";
 import CssIcon from "@/icons/CSS.astro";
 import ExpressIcon from "@/icons/Express.astro";
+import GithubIcon from "@/icons/GithubPreview.astro";
 
 const TAGS = {
     REACT: {
@@ -43,7 +45,7 @@ const PROJECTS = [
     {
         title: "Dogs - proyecto individual de henry",
         description: "una página donde podrás ver tus perritos favoritos. fue creado usando react y express",
-        link: "#",
+        link: "",
         github: "https://github.com/nahuellescano/dogs-client",
         tags: [TAGS.REACT, TAGS.REDUX, TAGS.CSS, TAGS.EXPRESS],
         image: "/Projects/dogs.webp",
@@ -53,7 +55,7 @@ const PROJECTS = [
     {
         title: "Rick And Morty - Primer proyecto individual en Henry bootcamp",
         description: "Una página dedicada a la serie de Rick y Morty, donde encontrarás todos personajes favoritos. Hecho con React, Express y PostgreSQL",
-        link: "#",
+        link: "",
         github: "https://github.com/nahuellescano/dogs-client",
         tags: [TAGS.REACT, TAGS.REDUX, TAGS.CSS, TAGS.EXPRESS],
         image: "/Projects/Rick-and-Morty.webp",
@@ -81,9 +83,8 @@ const PROJECTS = [
             <h1 class="text-2xl font-bold text-blue-700">
                 {title}
             </h1>
-            <h3 class="mt-3 mb-3 text-pretty text-sl font-semibold">{description}</h3>
             <div class="flex flex-wrap mt-2">
-                <ul class="flex flex-row mb-2 gap-x-2">
+                <ul class="flex flex-row mt-2 mb-2 gap-x-2">
                     {tags.map((tag) => (
                         <li>
                             <span
@@ -95,6 +96,21 @@ const PROJECTS = [
                         </li>
                     ))}
                 </ul>
+
+            <h3 class="mt-2 text-pretty text-sl font-semibold">{description}</h3>
+            <footer class="flex items-end justify-start mt-4 gap-x-2">
+                {github && (
+                    <LinkButton href={github}>
+                        <GithubIcon class="size-6" />
+                        Code
+                    </LinkButton>
+                )}
+                {link && (
+                    <LinkButton href={link}>
+                        Preview
+                    </LinkButton>
+                )}
+            </footer>
         </div>
     </article>
     ))
