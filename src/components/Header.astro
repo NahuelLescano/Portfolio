@@ -1,8 +1,58 @@
+---
+const NAV_ITEMS = [
+    {
+        title: "Inicio",
+        label: "inicio",
+        url: "#top",
+    },
+
+    {
+        title: "Proyectos",
+        label: "proyectos",
+        url: "#proyectos",
+    },
+
+    {
+        title: "Sobre mi",
+        label: "sobre-mi",
+        url: "#sobre-mi",
+    },
+
+    {
+        title: "Contacto",
+        label: "contacto",
+        url: "mailto:nahuellescano1012@gmail.com",
+    },
+];
+---
+
 <header
-    class="fixed top-0 z-10 flex justify-center items-center py-6 w-full px-2">
-    <nav class="flex px-3 text-sm flex-row gap-x-10 opacity-80">
-        <a href="#top">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mi</a>
+    class="fixed top-0 z-10 flex justify-center items-center w-full mx-auto mt-2">
+    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-400 justify-center items-center">
+        {
+            NAV_ITEMS.map(link => (
+                <a
+                    class="relative block px-2 py-2 transition hover:text-blue-700/80 hover:scale-125 transition inline-block"
+                    aria-label={link.label}
+                    href={link.url}
+                >
+                    {link.title}
+                </a>
+            ))
+        }
     </nav>
 </header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur text-white bg-white/50 ring-white/10;
+    }
+  }
+</style>
