@@ -2,23 +2,19 @@
 import Layout from '@/layouts/Layout.astro';
 import Badge from '@/components/Badge.astro';
 import Social from '@/components/Social.astro';
-import Experience from '@/components/Experience.astro';
 import Projects from '@/components/Projects.astro';
 import AboutMe from '@/components/AboutMe.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
+
 import LinkedInIcon from '@/icons/LinkedIn.astro';
 import GithubIcon from '@/icons/Github.astro';
 import EmailIcon from '@/icons/Email.astro';
-import BriefcaseIcon from '@/icons/Briefcase.astro';
 import CodeIcon from '@/icons/Code.astro';
 import UserIcon from '@/icons/User.astro';
-import CVIcon from '@/icons/FileCV.astro'
+import CVIcon from '@/icons/FileCV.astro';
 ---
 
-<Layout
-    title="Portfolio de Nahuel - Desarrollador y Programador Web junior"
-    description="Contratame para crear tu aplicación web o móvil. Desarrollador web. Especializado en crear aplicaciones únicas"
->
+<Layout>
     <main class="px-4">
         <SectionContainer class="py-16 mt-10 gap-x-4 md:px-35">
             <div class="flex mt-10 mb-4">
@@ -32,7 +28,9 @@ import CVIcon from '@/icons/FileCV.astro'
                     target="_blank"
                     rel="noopener"
                     class="flex items-center transition md:justify-center md:hover:scale-105">
-                    <Badge>Disponible para trabajar</Badge>
+                    <Badge>
+                        Disponible para trabajar
+                    </Badge>
                 </a>
             </div>
             <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
@@ -62,7 +60,7 @@ import CVIcon from '@/icons/FileCV.astro'
                 <Social href="./CV.pdf">
                     <CVIcon class="size-4 md:size-6"/>
                     Mi CV
-                </Social
+                </Social>
             </nav>
         </SectionContainer>
 
