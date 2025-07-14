@@ -1,29 +1,5 @@
 ---
-const NAV_ITEMS = [
-    {
-        title: "Inicio",
-        label: "inicio",
-        url: "#top",
-    },
-
-    {
-        title: "Proyectos",
-        label: "proyectos",
-        url: "#proyectos",
-    },
-
-    {
-        title: "Sobre mi",
-        label: "sobre-mi",
-        url: "#sobre-mi",
-    },
-
-    {
-        title: "Contacto",
-        label: "contacto",
-        url: "mailto:nahuellescano1012@gmail.com",
-    },
-];
+import { NAV_ITEMS } from "@/consts/navItems"
 ---
 
 <header
@@ -32,7 +8,7 @@ const NAV_ITEMS = [
         {
             NAV_ITEMS.map(link => (
                 <a
-                    class="relative block px-2 py-2 transition hover:text-blue-700/80 hover:scale-125 transition inline-block"
+                    class="relative p-2 hover:text-blue-700/80 hover:scale-125 transition inline-block"
                     aria-label={link.label}
                     href={link.url}
                 >
