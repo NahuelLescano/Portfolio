@@ -1,14 +1,23 @@
 {
-  "name": "",
+  "name": "portfolio-v2",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "bunx biome check",
+    "fix": "bunx biome check --fix",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^5.12.9"
-  }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.4"
+  },
+  "description": "Migration of portfolio to Astro",
+  "keywords": [],
+  "author": "Nahuel Lescano",
+  "license": "ISC"
 }
