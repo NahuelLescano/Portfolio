@@ -1,0 +1,24 @@
+---
+import { NAV_ITEMS } from "@/consts/navItems"
+---
+
+<header class="fixed top-0 z-10 flex justify-center items-center text-center w-full mx-auto mt-2">
+    <nav class="flex px-3 text-lg font-medium rounded-full text-gray-300 dark:text-gray-100 justify-center items-center">
+        <ul class="flex gap-4 list-none">
+            <li class="px-4">
+                {
+                    NAV_ITEMS.map(({ url, label, title }) => (
+                        <a 
+                            href={url}
+                            aria-label={label}
+                            title={title}
+                            class="hover:scale-125 hover:font-semibold transition ease-in-out inline-block p-2"
+                        >
+                            {title}
+                        </a>
+                    ))
+                }
+            </li>
+        </ul>
+    </nav>
+</header>
