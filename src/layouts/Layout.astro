@@ -1,7 +1,9 @@
 ---
 import NavBar from "@/components/NavBar.astro"
-import "@fontsource-variable/onest"
+import Footer from "@/components/Footer.astro"
+
 import "@/styles/global.css"
+import "@fontsource-variable/onest"
 ---
 
 <!doctype html>
@@ -16,6 +18,7 @@ import "@/styles/global.css"
 	<body>
         <NavBar />
 		<slot />
+        <Footer />
 	</body>
 </html>
 
