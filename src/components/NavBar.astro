@@ -22,3 +22,84 @@ import { NAV_ITEMS } from "@/consts/navItems"
         </ul>
     </nav>
 </header>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  nav {
+    background-color: rgb(255 255 255 / 0.5);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    nav {
+      background-color: rgb(31 41 55 / 0.9);
+    }
+  }
+
+  @keyframes nav-shadown {
+    0% {
+      background-color: rgb(255 255 255 / 0);
+    }
+    to {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      ring-width: 1px;
+      backdrop-filter: blur(8px);
+      ring-color: rgb(255 255 255 / 0.1);
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    @keyframes nav-shadown {
+      0% {
+        background-color: rgb(31 41 55 / 0);
+      }
+      to {
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        ring-width: 1px;
+        backdrop-filter: blur(8px);
+        ring-color: rgb(255 255 255 / 0.1);
+      }
+    }
+  }
+</style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const navItems = document.querySelectorAll("header nav ul li a")
+        const sections = document.querySelectorAll("section")
+
+        const callback = (entries: any[]) => {
+            entries.forEach((entry: any) => {
+                if (entry.isIntersecting) {
+                    navItems.forEach((item) => {
+                        if (item.getAttribute("aria-label") === entry.target.id) {
+                            item.classList.add("text-blue-500", "dark:text-blue-400", "font-bold");
+                        } else {
+                            item.classList.remove("text-blue-500", "dark:text-blue-400", "font-bold");
+                        }
+                    })
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.3,
+        })
+
+        sections.forEach((section) => observer.observe(section))
+        
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === "visible") {
+                observer.disconnect()
+            } else {
+                sections.forEach((section) => observer.observe(section))
+            }
+        }
+    })
+</script>
