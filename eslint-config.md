@@ -132,6 +132,7 @@ Listo, ahora tenemos un proyecto con `biome` configurado.
 Lo que queda de eslint y prettier ya se puede eliminar.
 
 ## Links
+
 [Video explicativo del Gentleman Programming](https://www.youtube.com/watch?v=8ZjAy0U_pVg&t=2731s)
 
 [Documentacion de biome](https://biomejs.dev/guides/getting-started/)
