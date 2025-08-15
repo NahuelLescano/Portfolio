@@ -2,6 +2,8 @@
 import Footer from "@/components/Footer.astro"
 import NavBar from "@/components/NavBar.astro"
 
+import { ClientRouter } from "astro:transitions"
+
 import "@/styles/global.css"
 import "@fontsource-variable/onest"
 ---
@@ -14,6 +16,7 @@ import "@fontsource-variable/onest"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="description" content="Contratame para crear tu aplicación web o móvil. Desarrollador web con React o Angular. Desarrollo backend" />
 		<title>Portafolio de Nahuel - Fullstack developer junior</title>
+        <ClientRouter />
 	</head>
 	<body>
         <NavBar />
@@ -33,14 +36,21 @@ html {
 }
 
 body {
-    background: #13151a;
+    background: rgba(17, 17, 17, 0.9);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overscroll-behavior: none;
 }
 
 @media (prefered-reduced-motion: dark) {
     html: {
+        scroll-behavior: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
         scroll-behavior: auto;
     }
 }
