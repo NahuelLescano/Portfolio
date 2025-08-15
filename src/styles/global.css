@@ -23,7 +23,7 @@ body {
     overscroll-behavior: none;
 }
 
-@media (prefered-reduced-motion: dark) {
+@media (prefered-color-scheme: dark) {
     html {
         scroll-behavior: auto;
     }
