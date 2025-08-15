@@ -1,5 +1,7 @@
 ---
-const currentYear = new Date().getFullYear();
+import { LINKS } from "@/consts/links"
+
+const currentYear = new Date().getFullYear()
 ---
 
 <footer 
@@ -9,8 +11,18 @@ const currentYear = new Date().getFullYear();
         class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
         >
         <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">&copy; {currentYear}
-            <a href="https://github.com/NahuelLescano" class="hover:underline hover:font-semibold">Nahuel Lescano</a>.
-            Ningun derecho reservado.
+            {
+                LINKS.map((link) => (
+                    <a 
+                        href={link.title}
+                        class="hover:underline gap-x-3 hover:font-semibold"
+                        aria-label={link.label}
+                        >
+                        {link.title}
+                    </a>
+                ))
+            }
+            <p>Ningun derecho reservado.</p>
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0">
             <li>
