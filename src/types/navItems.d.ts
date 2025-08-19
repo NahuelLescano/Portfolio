@@ -1,5 +1,5 @@
 export interface NavItem {
   title: string
   label: string
-  url: string
+  href: string
 }
