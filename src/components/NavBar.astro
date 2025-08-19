@@ -7,9 +7,9 @@ import { NAV_ITEMS } from '@/consts/navItems'
         <ul class="flex gap-4 list-none">
             <li class="px-4">
                 {
-                    NAV_ITEMS.map(({ url, label, title }) => (
+                    NAV_ITEMS.map(({ route, label, title }) => (
                         <a 
-                            href={url}
+                            href={route}
                             aria-label={label}
                             title={title}
                             class="hover:scale-125 hover:font-semibold transition ease-in-out inline-block p-2"

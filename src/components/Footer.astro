@@ -1,5 +1,5 @@
 ---
-import { LINKS } from '@/consts/links'
+import { EMAIL, LINKS } from '@/consts/links'
 
 const currentYear = new Date().getFullYear()
 ---
@@ -12,13 +12,13 @@ const currentYear = new Date().getFullYear()
         >
         <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">&copy; {currentYear}
             {
-                LINKS.map((link) => (
+                LINKS.map(({title, label, url}) => (
                     <a 
-                        href={link.title}
+                        href={url}
                         class="hover:underline gap-x-3 hover:font-semibold"
-                        aria-label={link.label}
+                        aria-label={label}
                         >
-                        {link.title}
+                        {title}
                     </a>
                 ))
             }
@@ -29,7 +29,7 @@ const currentYear = new Date().getFullYear()
                 <a href="#" class="hover:underline me-4 md:me-6">Sobre mi</a>
             </li>
             <li>
-                <a id="contacto" href="mailto:nahuellescano1012@gmail.com" class="hover:underline">Contacto</a>
+                <a id="contacto" href={EMAIL.url} class="hover:underline">Contacto</a>
             </li>
         </ul>
     </div>
