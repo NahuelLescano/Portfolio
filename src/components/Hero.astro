@@ -1,32 +1,36 @@
 ---
 import { EMAIL, LINKEDIN_URL } from '@/consts/links'
+
 import LinkedInIcon from './icons/LinkedInIcon.astro'
 import MailIcon from './icons/MailIcon.astro'
 import SocialContainer from './SocialContainer.astro'
 ---
 
-<div class="max-w-xl">
-    <div class="flex gap-4 mb-4">
+<div class="max-w-4xl">
+    <div class="flex gap-8 items-start">
         <img
             src="./profile.webp"
             alt="Nahuel Profile Picture"
-            class="rounded-lg size-32 object-cover"
+            class="rounded-lg size-52 object-cover flex-shrink-0"
         />
+        <div class="flex-1">
+            <h1
+                class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+            >
+                Hola, soy Nahuel
+            </h1>
+            <p
+                class="mt-6 text-xl text-gray-800 dark:text-gray-200 text-pretty
+                dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold"
+            >
+                +2 años de experiencia en <strong>desarrollo web y móvil</strong
+                > de Buenos Aires, Argentina. Me especializo en crear aplicaciones
+                modernas y eficientes utilizando tecnologías como <strong
+                    >React, Angular y Node.js.</strong
+                > Estoy aquí para ayudarte a llevar tu proyecto al siguiente nivel.
+            </p>
+        </div>
     </div>
-    <h1
-        class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
-    >
-        Hola, soy Nahuel
-    </h1>
-    <p
-        class="mt-6 text-xl text-gray-800 dark:text-gray-200 text-pretty
-        dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold"
-    >
-        +2 años de experiencia en <strong>desarrollo web y móvil</strong> de Buenos
-        Aires, Argentina. Me especializo en crear aplicaciones modernas y eficientes
-        utilizando tecnologías como <strong>React, Angular y Node.js.</strong> Estoy
-        aquí para ayudarte a llevar tu proyecto al siguiente nivel.
-    </p>
 
     <nav class="flex flex-wrap gap-4 mt-8">
         <SocialContainer href={EMAIL.url}>
