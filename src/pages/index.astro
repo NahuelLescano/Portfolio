@@ -1,10 +1,8 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-
 import SectionContainer from '@/components/SectionContainer.astro'
 import TitleContainer from '@/components/TitleContainer.astro'
-
 import PromptIcon from '@/icons/PromptIcon.astro'
+import Layout from '@/layouts/Layout.astro'
 
 import Experience from '@/sections/Experience.astro'
 import Hero from '@/sections/Hero.astro'
@@ -12,15 +10,17 @@ import Projects from '@/sections/Projects.astro'
 ---
 
 <Layout>
-    <SectionContainer class="py-16 md:py-36">
-        <Hero />
-    </SectionContainer>
-    <SectionContainer id="experience" class="space-y-24">
-        <TitleContainer>
-            <PromptIcon class="size-8"/>
-              Experiencia laboral
-        </TitleContainer>
-        <Experience />
-    </SectionContainer>
+    <main class="px-4">
+        <SectionContainer class="py-16 md:py-36">
+            <Hero />
+        </SectionContainer>
+        <SectionContainer id="experience" class="space-y-24">
+            <TitleContainer>
+                <PromptIcon class="size-8" />
+                Experiencia laboral
+            </TitleContainer>
+            <Experience />
+        </SectionContainer>
         <Projects />
+    </main>
 </Layout>
