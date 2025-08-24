@@ -2,6 +2,7 @@
 import SectionContainer from '@/components/SectionContainer.astro'
 import TitleContainer from '@/components/TitleContainer.astro'
 import PromptIcon from '@/icons/PromptIcon.astro'
+import VimIcon from '@/icons/VimIcon.astro'
 import Layout from '@/layouts/Layout.astro'
 
 import Experience from '@/sections/Experience.astro'
@@ -21,6 +22,12 @@ import Projects from '@/sections/Projects.astro'
             </TitleContainer>
             <Experience />
         </SectionContainer>
-        <Projects />
+        <SectionContainer id="projects" class="pt-16">
+            <TitleContainer>
+                <VimIcon class="size-8" />
+                Proyectos
+            </TitleContainer>
+            <Projects />
+        </SectionContainer>
     </main>
 </Layout>
