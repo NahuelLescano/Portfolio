@@ -1,10 +1,12 @@
 ---
 import SectionContainer from '@/components/SectionContainer.astro'
 import TitleContainer from '@/components/TitleContainer.astro'
+import ProfileIcon from '@/icons/ProfileIcon.astro'
 import PromptIcon from '@/icons/PromptIcon.astro'
 import VimIcon from '@/icons/VimIcon.astro'
-import Layout from '@/layouts/Layout.astro'
 
+import Layout from '@/layouts/Layout.astro'
+import AboutMe from '@/sections/AboutMe.astro'
 import Experience from '@/sections/Experience.astro'
 import Hero from '@/sections/Hero.astro'
 import Projects from '@/sections/Projects.astro'
@@ -22,12 +24,19 @@ import Projects from '@/sections/Projects.astro'
             </TitleContainer>
             <Experience />
         </SectionContainer>
-        <SectionContainer id="projects" class="pt-16">
+        <SectionContainer id="projects" class="mt-16">
             <TitleContainer>
                 <VimIcon class="size-8" />
                 Proyectos
             </TitleContainer>
             <Projects />
+        </SectionContainer>
+        <SectionContainer id="about-me" class="mt-16">
+            <TitleContainer>
+                <ProfileIcon />
+                Sobre Mi
+            </TitleContainer>
+            <AboutMe />
         </SectionContainer>
     </main>
 </Layout>
