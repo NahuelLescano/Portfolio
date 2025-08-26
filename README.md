@@ -50,4 +50,7 @@ src/
 ## 🔗 Links
 
 - [Fontsource - Onest Font](https://fontsource.org/fonts/onest/install)
-
+- [Icon - svgl](https://svgl.app/?search=tailwind)
+- [Icon - Tabler Icons](https://tabler.io/icons)
+- [SVG OMG!](https://svgomg.net/)
+- [Squosh](https://squoosh.app/)
