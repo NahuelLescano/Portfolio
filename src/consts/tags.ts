@@ -16,10 +16,20 @@ export const TAGS: Tags = {
     class: 'bg-black text-[#764abc]',
     icon: 'ReduxIcon',
   },
+  ZUSTAND: {
+    name: 'Zustand',
+    class: 'bg-black text-white',
+    icon: 'ZustandIcon',
+  },
   NODEJS: {
     name: 'Node.js',
     class: 'nodejs',
     icon: 'NodejsIcon',
+  },
+  VITE: {
+    name: 'Vite',
+    class: 'bg-[#646cff] text-white',
+    icon: 'ViteIcon',
   },
   EXPRESS: {
     name: 'Express',
@@ -27,8 +37,8 @@ export const TAGS: Tags = {
     icon: 'ExpressIcon',
   },
   TAILWIND: {
-    name: 'Tailwind CSS',
-    class: 'tailwind',
+    name: 'Tailwind',
+    class: 'bg-[#003159] text-white',
     icon: 'TailwindIcon',
   },
   CSS: {
@@ -36,14 +46,34 @@ export const TAGS: Tags = {
     class: 'bg-black text-yellow',
     icon: 'CssIcon',
   },
+  HTML: {
+    name: 'HTML',
+    class: 'bg-black text-orange',
+    icon: 'HtmlIcon',
+  },
   JAVASCRIPT: {
     name: 'JavaScript',
-    class: 'javascript',
+    class: 'bg-black text-yellow',
     icon: 'JavascriptIcon',
+  },
+  PHP: {
+    name: 'PHP',
+    class: 'bg-black text-purple',
+    icon: 'PhpIcon',
+  },
+  KOTLIN: {
+    name: 'Kotlin',
+    class: 'bg-black text-purple',
+    icon: 'KotlinIcon',
+  },
+  ANDROID: {
+    name: 'Android',
+    class: 'bg-black text-green',
+    icon: 'AndroidIcon',
   },
   TYPESCRIPT: {
     name: 'TypeScript',
-    class: 'typescript',
+    class: 'bg-black text-white',
     icon: 'TypescriptIcon',
   },
 } as const
