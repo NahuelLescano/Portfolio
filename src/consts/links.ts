@@ -1,5 +1,11 @@
 import type { Link } from '@/types/links'
 
+export const CV_URL: Link = {
+    title: 'CV',
+    label: 'cv',
+    url: './CV_Nahuel.pdf',
+} as const
+
 export const GITHUB_URL: Link = {
   title: 'GitHub',
   label: 'github',
