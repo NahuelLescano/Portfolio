@@ -1,70 +1,101 @@
 ---
 import LinkButtonContainer from '@/components/LinkButtonContainer.astro'
 import { PROJECTS } from '@/consts/projects'
+import AndroidIcon from '@/icons/AndroidIcon.astro'
 import CssIcon from '@/icons/CssIcon.astro'
 import ExpressIcon from '@/icons/ExpressIcon.astro'
 import GithubIcon from '@/icons/GithubIcon.astro'
+import HtmlIcon from '@/icons/HtmlIcon.astro'
+import JavascriptIcon from '@/icons/JavascriptIcon.astro'
+import KotlinIcon from '@/icons/KotlinIcon.astro'
 import LinkIcon from '@/icons/LinkIcon.astro'
+import PhpIcon from '@/icons/PhpIcon.astro'
 import ReactIcon from '@/icons/ReactIcon.astro'
 import ReduxIcon from '@/icons/ReduxIcon.astro'
+import TailwindIcon from '@/icons/TailwindIcon.astro'
+import TypescriptIcon from '@/icons/TypescriptIcon.astro'
+import ViteIcon from '@/icons/ViteIcon.astro'
+import ZustandIcon from '@/icons/ZustandIcon.astro'
 
 const iconMap = {
   ReactIcon: ReactIcon,
   ReduxIcon: ReduxIcon,
   CssIcon: CssIcon,
   ExpressIcon: ExpressIcon,
+  TailwindIcon: TailwindIcon,
+  ZustandIcon: ZustandIcon,
+  ViteIcon: ViteIcon,
+  TypescriptIcon: TypescriptIcon,
+  JavascriptIcon: JavascriptIcon,
+  HtmlIcon: HtmlIcon,
+  PhpIcon: PhpIcon,
+  KotlinIcon: KotlinIcon,
+  AndroidIcon: AndroidIcon,
 }
 ---
 
 <div class="flex flex-col gap-8">
     {
-        PROJECTS.map(({ image, alt, title, description, tags, github, link }) => (
-            <article class="flex flex-col group space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
-                <div class="w-full md:w-1/2">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                        <img 
-                            class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                            src={image} alt={alt} loading="lazy" 
-                        />
+        PROJECTS.map(
+            ({ image, alt, title, description, tags, github, link }) => (
+                <article class="flex flex-col group space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                            <img
+                                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                                src={image}
+                                alt={alt}
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
-                </div>
-                <div class="w-full md:w-1/2 md:max-w-lg">
-                    <h2 class="text-2xl font-bold text-gray-600 dark:text-gray-200">
-                        {title}
-                    </h2>
-                    <div class="flex flex-wrap mt-2">
-                        <ul class="flex flex-row mb-2 gap-x-2">
-                            {
-                                tags.map(({ icon, class: className, name }) => {
-                                    const IconComponent = iconMap[icon as keyof typeof iconMap];
-                                    return (
-                                        <li>
-                                            <span class={`${className} flex gap-x-2 rounded-full text-xs py-1 px-2 items-center`}>
-                                                <IconComponent class="size-4" />
-                                                {name}
-                                            </span>
-                                        </li>
-                                    );
-                                })
-                            }
-                        </ul>
-                        <div class="mt-2 text-gray-600 dark:text-gray-200 text-pretty">{description}</div>
-                        <footer class="flex items-end justify-start mt-4 gap-x-4">
-                            <LinkButtonContainer href={github}>
-                                <GithubIcon class="size-6" />
-                                Repo
-                            </LinkButtonContainer>
+                    <div class="w-full md:w-1/2 md:max-w-lg">
+                        <h2 class="text-2xl font-bold text-gray-600 dark:text-gray-200">
+                            {title}
+                        </h2>
+                        <div class="flex flex-wrap mt-2">
+                            <ul class="flex flex-row mb-2 gap-x-2">
+                                {tags.map(
+                                    ({ icon, class: className, name }) => {
+                                        const IconComponent =
+                                            iconMap[
+                                                icon as keyof typeof iconMap
+                                            ];
+                                        return (
+                                            <li>
+                                                <span
+                                                    class={`${className} flex gap-x-2 rounded-full text-xs py-1 px-2 items-center`}
+                                                >
+                                                    <IconComponent class="size-4" />
+                                                    {name}
+                                                </span>
+                                            </li>
+                                        );
+                                    },
+                                )}
+                            </ul>
+                            <div class="mt-2 text-gray-600 dark:text-gray-200 text-pretty">
+                                {description}
+                            </div>
+                            <footer class="flex items-end justify-start mt-4 gap-x-4">
+                                {github && (
+                                    <LinkButtonContainer href={github}>
+                                        <GithubIcon class="size-6" />
+                                        Repo
+                                    </LinkButtonContainer>
+                                )}
 
-                            {
-                                link && <LinkButtonContainer href={link}>
-                                    <LinkIcon class="size-6" />
-                                    Preview
-                                </LinkButtonContainer>
-                            }
-                        </footer>
+                                {link && (
+                                    <LinkButtonContainer href={link}>
+                                        <LinkIcon class="size-6" />
+                                        Preview
+                                    </LinkButtonContainer>
+                                )}
+                            </footer>
+                        </div>
                     </div>
-                </div>
-            </article>
-        ))
+                </article>
+            ),
+        )
     }
 </div>
