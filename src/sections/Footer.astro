@@ -1,35 +1,60 @@
 ---
-import { EMAIL, LINKS } from '@/consts/links'
+import { EXPERIENCE, PROJECTS } from "@/consts/navItems";
+import { EMAIL, LINKS } from "@/consts/links";
 
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 ---
 
-<footer 
-    class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+<footer
+    class="opacity-80 mx-4 mt-12 md:mt-16 w-full max-w-4xl md:mx-auto mb-6 md:mb-10 flex justify-center px-2 md:px-4"
 >
-    <div 
-        class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+    <div
+        class="rounded-lg w-full max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between py-3 md:py-4 gap-3 md:gap-0"
+    >
+        <div class="text-center md:text-left">
+            <span
+                class="text-xs sm:text-sm text-zinc-800/90 dark:text-zinc-200/90 block"
+            >
+                &copy; {currentYear}
+                {
+                    LINKS.map(({ title, label, url }, index) => (
+                        <>
+                            <a
+                                href={url}
+                                class="hover:underline hover:font-semibold mx-1 inline-block"
+                                aria-label={label}
+                            >
+                                {title}
+                            </a>
+                            {index < LINKS.length - 1 && (
+                                <span class="text-zinc-400 mx-1">•</span>
+                            )}
+                        </>
+                    ))
+                }
+            </span>
+            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">
+                Ningún derecho reservado.
+            </p>
+        </div>
+
+        <ul
+            class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 text-xs sm:text-sm font-medium text-zinc-700 dark:text-white/90 [&_a]:hover:underline [&_a]:hover:text-blue-500 dark:[&_a]:hover:text-blue-400 [&_a]:transition-colors"
         >
-        <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">&copy; {currentYear}
-            {
-                LINKS.map(({title, label, url}) => (
-                    <a 
-                        href={url}
-                        class="hover:underline gap-x-3 hover:font-semibold"
-                        aria-label={label}
-                        >
-                        {title}
-                    </a>
-                ))
-            }
-            <p>Ningun derecho reservado.</p>
-        </span>
-        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0">
             <li>
-                <a href="/#about-me" class="hover:underline me-4 md:me-6">Sobre mi</a>
+                <a href={EXPERIENCE.href} aria-label={EXPERIENCE.label}>
+                    {EXPERIENCE.title}
+                </a>
             </li>
             <li>
-                <a id="contacto" href={EMAIL.url} class="hover:underline">Contacto</a>
+                <a href={PROJECTS.href} aria-label={PROJECTS.label}>
+                    {PROJECTS.title}
+                </a>
+            </li>
+            <li>
+                <a href={EMAIL.url} aria-label={EMAIL.label}>
+                    {EMAIL.title}
+                </a>
             </li>
         </ul>
     </div>
