@@ -1,9 +1,9 @@
 import type { Link } from '@/types/links'
 
 export const CV_URL: Link = {
-    title: 'CV',
-    label: 'cv',
-    url: './CV_Nahuel.pdf',
+  title: 'CV',
+  label: 'cv',
+  url: './CV_Nahuel.pdf',
 } as const
 
 export const GITHUB_URL: Link = {
@@ -30,9 +30,4 @@ export const EMAIL: Link = {
   url: 'mailto:nahuellescano1012@gmail.com',
 } as const
 
-export const LINKS: Link[] = [
-    GITHUB_URL,
-    LINKEDIN_URL,
-    X_URL,
-    EMAIL,
-] as const
+export const LINKS: Link[] = [GITHUB_URL, LINKEDIN_URL, X_URL, EMAIL] as const
