@@ -1,18 +1,21 @@
 ---
-import { NAV_ITEMS } from '@/consts/navItems'
+import { NAV_ITEMS } from "@/consts/navItems";
 ---
 
-<header class="fixed top-0 z-10 flex justify-center items-center text-center w-full mx-auto mt-2">
-    <nav class="flex px-3 text-lg font-medium rounded-full text-gray-300 dark:text-gray-100 justify-center items-center">
-        <ul class="flex gap-4 list-none">
-            <li class="px-4">
+<header
+    class="fixed top-0 z-10 flex justify-center items-center text-center w-full mx-auto mt-2 px-2"
+>
+    <nav
+        class="flex px-2 md:px-3 text-sm md:text-lg font-medium rounded-full text-gray-300 dark:text-gray-100 justify-center items-center max-w-full overflow-hidden"
+    >
+        <ul class="flex gap-1 md:gap-4 list-none">
+            <li class="px-1 md:px-4">
                 {
                     NAV_ITEMS.map(({ href, label, title }) => (
-                        <a 
+                        <a
                             href={href}
                             aria-label={label}
-                            title={title}
-                            class="hover:scale-125 hover:font-semibold transition ease-in-out inline-block p-2"
+                            class="hover:scale-110 md:hover:scale-125 hover:font-semibold transition ease-in-out inline-block p-1 md:p-2 whitespace-nowrap text-xs md:text-base hover:text-blue-500 dark:hover:text-blue-400"
                         >
                             {title}
                         </a>
@@ -24,82 +27,146 @@ import { NAV_ITEMS } from '@/consts/navItems'
 </header>
 
 <style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  nav {
-    background-color: rgb(255 255 255 / 0.5);
-  }
-  
-  @media (prefers-color-scheme: dark) {
     nav {
-      background-color: rgb(31 41 55 / 0.9);
+        animation: nav-shadown 1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 100px;
     }
-  }
 
-  @keyframes nav-shadown {
-    0% {
-      background-color: rgb(255 255 255 / 0);
+    nav {
+        background-color: rgb(255 255 255 / 0.5);
     }
-    to {
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-      ring-width: 1px;
-      backdrop-filter: blur(8px);
-      ring-color: rgb(255 255 255 / 0.1);
+
+    @media (prefers-color-scheme: dark) {
+        nav {
+            background-color: rgb(31 41 55 / 0.9);
+        }
     }
-  }
-  
-  @media (prefers-color-scheme: dark) {
+
     @keyframes nav-shadown {
-      0% {
-        background-color: rgb(31 41 55 / 0);
-      }
-      to {
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        ring-width: 1px;
-        backdrop-filter: blur(8px);
-        ring-color: rgb(255 255 255 / 0.1);
-      }
+        0% {
+            background-color: rgb(255 255 255 / 0);
+        }
+        to {
+            box-shadow:
+                0 10px 15px -3px rgb(0 0 0 / 0.1),
+                0 4px 6px -4px rgb(0 0 0 / 0.1);
+            ring-width: 1px;
+            backdrop-filter: blur(8px);
+            ring-color: rgb(255 255 255 / 0.1);
+        }
     }
-  }
+
+    @media (prefers-color-scheme: dark) {
+        @keyframes nav-shadown {
+            0% {
+                background-color: rgb(31 41 55 / 0);
+            }
+            to {
+                box-shadow:
+                    0 10px 15px -3px rgb(0 0 0 / 0.1),
+                    0 4px 6px -4px rgb(0 0 0 / 0.1);
+                ring-width: 1px;
+                backdrop-filter: blur(8px);
+                ring-color: rgb(255 255 255 / 0.1);
+            }
+        }
+    }
 </style>
 
 <script>
     document.addEventListener("astro:page-load", () => {
-        const navItems = document.querySelectorAll("header nav ul li a")
-        const sections = document.querySelectorAll("section")
+        const navItems = document.querySelectorAll("header nav ul li a");
+        const sections = document.querySelectorAll("section");
+
+        // Función para remover estilos activos de todos los elementos
+        const removeActiveStyles = () => {
+            navItems.forEach((item) => {
+                item.classList.remove(
+                    "text-blue-500",
+                    "dark:text-blue-400",
+                    "font-bold"
+                );
+            });
+        };
+
+        // Función para activar un elemento específico
+        const setActiveItem = (activeLabel: string) => {
+            removeActiveStyles();
+            navItems.forEach((item) => {
+                if (item.getAttribute("aria-label") === activeLabel) {
+                    item.classList.add(
+                        "text-blue-500",
+                        "dark:text-blue-400",
+                        "font-bold"
+                    );
+                }
+            });
+        };
 
         const callback = (entries: any[]) => {
-            entries.forEach((entry: any) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    navItems.forEach((item) => {
-                        if (item.getAttribute("aria-label") === entry.target.id) {
-                            item.classList.add("text-blue-500", "dark:text-blue-400", "font-bold");
-                        } else {
-                            item.classList.remove("text-blue-500", "dark:text-blue-400", "font-bold");
-                        }
-                    })
+                    const sectionId = entry.target.id;
+                    // Mapear IDs de secciones a labels del nav
+                    let activeLabel = "";
+                    switch (sectionId) {
+                        case "experience":
+                            activeLabel = "experiencia";
+                            break;
+                        case "projects":
+                            activeLabel = "proyectos";
+                            break;
+                        case "about-me":
+                            activeLabel = "sobre-mi";
+                            break;
+                        default:
+                            activeLabel = "inicio"; // Para la primera sección sin ID
+                    }
+                    setActiveItem(activeLabel);
                 }
-            })
-        }
+            });
+        };
 
         const observer = new IntersectionObserver(callback, {
             root: null,
-            rootMargin: "0px",
-            threshold: 0.3,
-        })
+            rootMargin: "-20% 0px -60% 0px", // Mejores márgenes para la detección
+            threshold: 0.1,
+        });
 
-        sections.forEach((section) => observer.observe(section))
-        
-        document.onvisibilitychange = () => {
-            if (document.visibilityState === "visible") {
-                observer.disconnect()
-            } else {
-                sections.forEach((section) => observer.observe(section))
-            }
+        // Observar todas las secciones
+        sections.forEach((section) => observer.observe(section));
+
+        // Observar también el elemento main para detectar la primera sección
+        const main = document.querySelector("main");
+        if (main) {
+            observer.observe(main);
         }
-    })
+
+        // Activar "Inicio" por defecto al cargar la página
+        setActiveItem("inicio");
+
+        // Manejar clicks en los enlaces del nav para navegación inmediata
+        navItems.forEach((item) => {
+            const href = item.getAttribute("href");
+            // Solo manejar enlaces internos (no mailto)
+            if (href && href.startsWith("#") || href?.includes("/#")) {
+                item.addEventListener("click", (_e) => {
+                    const label = item.getAttribute("aria-label");
+                    if (label && label !== "contacto") {
+                        setActiveItem(label);
+                    }
+                });
+            }
+        });
+
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === "hidden") {
+                observer.disconnect();
+            } else {
+                sections.forEach((section) => observer.observe(section));
+                if (main) observer.observe(main);
+            }
+        };
+    });
 </script>
