@@ -79,7 +79,6 @@ import { NAV_ITEMS } from "@/consts/navItems";
         const navItems = document.querySelectorAll("header nav ul li a");
         const sections = document.querySelectorAll("section");
 
-        // Función para remover estilos activos de todos los elementos
         const removeActiveStyles = () => {
             navItems.forEach((item) => {
                 item.classList.remove(
@@ -90,7 +89,6 @@ import { NAV_ITEMS } from "@/consts/navItems";
             });
         };
 
-        // Función para activar un elemento específico
         const setActiveItem = (activeLabel: string) => {
             removeActiveStyles();
             navItems.forEach((item) => {
@@ -121,7 +119,7 @@ import { NAV_ITEMS } from "@/consts/navItems";
                             activeLabel = "sobre-mi";
                             break;
                         default:
-                            activeLabel = "inicio"; // Para la primera sección sin ID
+                            activeLabel = "inicio";
                     }
                     setActiveItem(activeLabel);
                 }
@@ -130,26 +128,21 @@ import { NAV_ITEMS } from "@/consts/navItems";
 
         const observer = new IntersectionObserver(callback, {
             root: null,
-            rootMargin: "-20% 0px -60% 0px", // Mejores márgenes para la detección
+            rootMargin: "-20% 0px -60% 0px",
             threshold: 0.1,
         });
 
-        // Observar todas las secciones
         sections.forEach((section) => observer.observe(section));
 
-        // Observar también el elemento main para detectar la primera sección
         const main = document.querySelector("main");
         if (main) {
             observer.observe(main);
         }
 
-        // Activar "Inicio" por defecto al cargar la página
         setActiveItem("inicio");
 
-        // Manejar clicks en los enlaces del nav para navegación inmediata
         navItems.forEach((item) => {
             const href = item.getAttribute("href");
-            // Solo manejar enlaces internos (no mailto)
             if (href && href.startsWith("#") || href?.includes("/#")) {
                 item.addEventListener("click", (_e) => {
                     const label = item.getAttribute("aria-label");
