@@ -1,13 +1,24 @@
-import type { NavItem } from '@/types/navItems'
+import type { Link } from '@/types/links'
 
-export const NAV_ITEMS: NavItem[] = [
-  { title: 'Inicio', label: 'inicio', href: '#top' },
-  { title: 'Experiencia', label: 'experiencia', href: '/#experience' },
-  { title: 'Proyectos', label: 'proyectos', href: '/#projects' },
-  { title: 'Sobre mi', label: 'sobre-mi', href: '/#about-me' },
-  {
-    title: 'Contacto',
-    label: 'contacto',
-    href: 'mailto:nahuellescano1012@gmail.com',
-  },
+export const EXPERIENCE: Link = {
+    title: 'Experiencia',
+    label: 'experiencia',
+    url: '/#experience',
+} as const
+export const PROJECTS: Link = {
+    title: 'Proyectos',
+    label: 'proyectos',
+    url: '/#projects',
+} as const
+
+export const NAV_ITEMS: Link[] = [
+    { title: 'Inicio', label: 'inicio', url: '#top' },
+    EXPERIENCE,
+    PROJECTS,
+    { title: 'Sobre mi', label: 'sobre-mi', url: '/#about-me' },
+    {
+        title: 'Contacto',
+        label: 'contacto',
+        url: 'mailto:nahuellescano1012@gmail.com',
+    },
 ] as const
