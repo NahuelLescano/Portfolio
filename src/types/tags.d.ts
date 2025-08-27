@@ -3,7 +3,6 @@ export type TagName =
   | 'Astro'
   | 'Redux'
   | 'Zustand'
-  | 'Node.js'
   | 'Vite'
   | 'Express'
   | 'Tailwind'
@@ -26,7 +25,6 @@ export interface Tags {
   ASTRO: Tag
   REDUX: Tag
   ZUSTAND: Tag
-  NODEJS: Tag
   VITE: Tag
   EXPRESS: Tag
   TAILWIND: Tag
