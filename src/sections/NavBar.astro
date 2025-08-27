@@ -11,9 +11,9 @@ import { NAV_ITEMS } from "@/consts/navItems";
         <ul class="flex gap-1 md:gap-4 list-none">
             <li class="px-1 md:px-4">
                 {
-                    NAV_ITEMS.map(({ href, label, title }) => (
+                    NAV_ITEMS.map(({ url, label, title }) => (
                         <a
-                            href={href}
+                            href={url}
                             aria-label={label}
                             class="hover:scale-110 md:hover:scale-125 hover:font-semibold transition ease-in-out inline-block p-1 md:p-2 whitespace-nowrap text-xs md:text-base hover:text-blue-500 dark:hover:text-blue-400"
                         >
