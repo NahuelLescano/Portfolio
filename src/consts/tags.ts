@@ -21,11 +21,6 @@ export const TAGS: Tags = {
     class: 'bg-black text-white',
     icon: 'ZustandIcon',
   },
-  NODEJS: {
-    name: 'Node.js',
-    class: 'nodejs',
-    icon: 'NodejsIcon',
-  },
   VITE: {
     name: 'Vite',
     class: 'bg-[#646cff] text-white',
