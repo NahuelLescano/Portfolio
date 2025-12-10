@@ -1,26 +1,29 @@
 {
-  "name": "portfolio-v2",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "check": "bunx biome check",
-    "fix": "bunx biome check --fix",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@fontsource-variable/onest": "^5.2.9",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "5.13.2",
-    "tailwindcss": "^4.1.11"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.1.4"
-  },
-  "description": "Migration of portfolio to Astro",
-  "keywords": [],
-  "author": "Nahuel Lescano",
-  "license": "ISC"
+	"name": "portfolio-v2",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"lint": "bunx eslint .",
+		"lint:fix": "bunx eslint . --fix",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@fontsource-variable/onest": "^5.2.9",
+		"@tailwindcss/vite": "^4.1.11",
+		"astro": "5.13.2",
+		"tailwindcss": "^4.1.11"
+	},
+	"description": "Migration of portfolio to Astro",
+	"keywords": [],
+	"author": "Nahuel Lescano",
+	"license": "ISC",
+	"devDependencies": {
+		"@eslint/js": "^9.39.1",
+		"eslint": "^9.39.1",
+		"eslint-formatter-unix": "^9.0.1",
+		"eslint-plugin-astro": "^1.5.0"
+	}
 }

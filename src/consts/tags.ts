@@ -71,4 +71,9 @@ export const TAGS: Tags = {
     class: 'bg-black text-white',
     icon: 'TypescriptIcon',
   },
+  PYTHON: {
+    name: 'Python',
+    class: 'bg-black text-yellow',
+    icon: 'PythonIcon',
+  },
 } as const

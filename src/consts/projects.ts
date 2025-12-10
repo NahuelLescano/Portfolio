@@ -27,8 +27,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Bodu Games - Marketplace de juegos de mesa',
-    description:
-      `
+    description: `
    Desarrollo Full Stack colaborativo de una plataforma e-commerce para juegos de mesa. 
    En el frontend, implementé React y Redux para manejar un flujo de compras complejo y filtros dinámicos. 
    Diseñé la interfaz de usuario utilizando CSS puro para lograr una identidad visual única, asegurando la comunicación fluida con un backend en Express.
@@ -41,8 +40,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Dogs - Página de perros favoritos',
-    description:
-      `
+    description: `
     Single Page Application (SPA) Full Stack que consume datos de una API externa y base de datos propia.
     Desarrollé funcionalidades avanzadas de búsqueda, filtrado y ordenamiento del lado del cliente y servidor. 
     Implementé formularios controlados para la creación de nuevas razas, gestionando el estado global de la aplicación con Redux y el backend con Express.
@@ -54,8 +52,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Rick And Morty - Modern Web App',
-    description:
-      `
+    description: `
     Aplicación de alto rendimiento desarrollada para explorar un stack tecnológico moderno (Vite + Bun).
     Implementé una 'Screaming Architecture' para garantizar la escalabilidad y mantenibilidad del código.
     Sustituí Redux por Zustand para una gestión de estado más ligera y eficiente, logrando una experiencia de usuario instantánea con Tailwind CSS.
