@@ -13,90 +13,99 @@ interface Props {
   description?: string
   title?: string
   lang?: Lang
+  url?: string
+  // path starting with '/'
+  ogImage?: string
+  twitterImage?: string
+  linkedinImage?: string
 }
 
 const {
-  description = 'Contratame para crear tu aplicación web o móvil. Desarrollador web con React o Angular. Desarrollo backend',
+  description = 'Contratame para crear tu aplicación web o móvil. Desarrollador web con React o Vue. Desarrollo backend',
   title = 'Porfolio de Nahuel - Fullstack developer junior',
   lang = 'es',
+  url = 'https://portfolio-nahuel-lescano.vercel.app/',
+  ogImage = '/profile.webp',
+  twitterImage = '/profile.webp',
+  linkedinImage = '/profile.webp',
 } = Astro.props
 ---
 
 <!doctype html>
 <html lang={lang}>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-        <!-- fonts preloading -->
-        <link
-            rel="preload"
-            href="/fonts/onest-cyrillic-200-normal"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-        />
-        <link
-            rel="preload"
-            href="/fonts/onest-cyrillic-700-normal"
-            as="font"
-            type="font/woff2"
-            crossorigin="anonymous"
-        />
+    <!-- fonts preloading -->
+    <link
+      rel="preload"
+      href="/fonts/onest-cyrillic-200-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/onest-cyrillic-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
 
-        <!-- image preload -->
-        <link
-            rel="preload"
-            href="./profile.webp"
-            as="image"
-            type="image/webp"
-            crossorigin="anonymous"
-        />
+    <!-- image preload -->
+    <link
+      rel="preload"
+      href="/profile.webp"
+      as="image"
+      type="image/webp"
+      crossorigin="anonymous"
+    />
 
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="description" content={description} />
-        <title>{title}</title>
-        <ClientRouter />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ClientRouter />
 
-        <!-- og meta tags -->
-        <meta
-            property="og:url"
-            content="https://portfolio-nahuel-lescano.vercel.app/"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta
-            property="og:image"
-            content="https://portfolio-nahuel-lescano.vercel.app/profile.webp"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/webp" />
-        <meta
-            property="og:image:alt"
-            content="Nahuel Lescano - Fullstack Developer"
-        />
-        <meta property="og:locale" content="es_ES" />
-        <meta property="og:site_name" content="Porfolio de Nahuel" />
+    <!-- canonical -->
+    <link rel="canonical" href={url} />
 
-        <meta property="article:author" content="Nahuel Lescano" />
-        <meta property="profile:first_name" content="Nahuel" />
-        <meta property="profile:last_name" content="Lescano" />
+    <!-- og meta tags -->
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${url}${ogImage}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta
+      property="og:image:alt"
+      content="Nahuel Lescano - Fullstack Developer"
+    />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Porfolio de Nahuel" />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@nahuel0495" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta
-            name="twitter:image"
-            content="https://portfolio-nahuel-lescano.vercel.app/profile.webp"
-        />
-    </head>
-    <body>
-        <NavBar />
-        <slot />
-        <Footer />
-    </body>
+    <meta property="article:author" content="Nahuel Lescano" />
+    <meta property="profile:first_name" content="Nahuel" />
+    <meta property="profile:last_name" content="Lescano" />
+
+    <!-- twitter for cross-compat -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@nahuel0495" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${url}${twitterImage}`} />
+
+    <!-- og meta tags for linkedin -->
+    <meta name="linkedin:title" content={title} />
+    <meta name="linkedin:description" content={description} />
+    <meta name="linkedin:image" content={`${url}${linkedinImage}`} />
+    <meta name="linkedin:url" content={url} />
+    <meta name="linkedin:site_name" content="Porfolio de Nahuel" />
+  </head>
+  <body>
+    <NavBar />
+    <slot />
+    <Footer />
+  </body>
 </html>
