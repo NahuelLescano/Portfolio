@@ -13,6 +13,7 @@ export type TagName =
   | 'Android'
   | 'JavaScript'
   | 'TypeScript'
+  | 'Python'
 
 export interface Tag {
   name: TagName
@@ -35,4 +36,5 @@ export interface Tags {
   TYPESCRIPT: Tag
   CSS: Tag
   HTML: Tag
+  PYTHON: Tag
 }
