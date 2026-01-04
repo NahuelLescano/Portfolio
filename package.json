@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@fontsource-variable/onest": "^5.2.9",
 		"@tailwindcss/vite": "^4.1.11",
-		"astro": "5.13.2",
+		"astro": "5.16.6",
 		"tailwindcss": "^4.1.11"
 	},
 	"description": "Migration of portfolio to Astro",
