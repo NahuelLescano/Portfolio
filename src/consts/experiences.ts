@@ -3,7 +3,7 @@ import { TAGS } from './tags'
 
 export const EXPERIENCES: Experience[] = [
   {
-    date: 'Actualmente...',
+    date: 'Agos 2025 - Actualidad',
     title: 'Full Stack Developer',
     company: 'Kromee',
     description:
