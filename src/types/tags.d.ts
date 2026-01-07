@@ -14,6 +14,9 @@ export type TagName =
   | 'JavaScript'
   | 'TypeScript'
   | 'Python'
+  | 'FastAPI'
+  | 'SQLAlchemy'
+  | 'Docker'
 
 export interface Tag {
   name: TagName
@@ -37,4 +40,7 @@ export interface Tags {
   CSS: Tag
   HTML: Tag
   PYTHON: Tag
+  FASTAPI: Tag
+  SQLALCHEMY: Tag
+  DOCKER: Tag
 }

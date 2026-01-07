@@ -76,4 +76,19 @@ export const TAGS: Tags = {
     class: 'bg-black text-yellow',
     icon: 'PythonIcon',
   },
+  FASTAPI: {
+    name: 'FastAPI',
+    class: 'bg-black text-white',
+    icon: 'FastapiIcon',
+  },
+  SQLALCHEMY: {
+    name: 'SQLAlchemy',
+    class: 'bg-black text-white',
+    icon: 'SqlalchemyIcon',
+  },
+  DOCKER: {
+    name: 'Docker',
+    class: 'bg-black text-blue',
+    icon: 'DockerIcon',
+  },
 } as const
