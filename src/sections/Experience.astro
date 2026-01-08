@@ -1,11 +1,16 @@
 ---
 import { EXPERIENCES } from "@/consts/experiences";
+import { EXPERIENCES_EN } from "@/consts/experiences-en";
 import PythonIcon from "@/icons/PythonIcon.astro";
 import ReactIcon from "@/icons/ReactIcon.astro";
 import ExpressIcon from "@/icons/ExpressIcon.astro";
 import FastapiIcon from "@/icons/FastapiIcon.astro";
 import SqlalchemyIcon from "@/icons/SqlalchemyIcon.astro";
 import DockerIcon from "@/icons/DockerIcon.astro";
+import { getLangFromUrl } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const experiences = lang === "es" ? EXPERIENCES : EXPERIENCES_EN;
 
 const iconMap = {
   PythonIcon: PythonIcon,
@@ -19,7 +24,7 @@ const iconMap = {
 
 <ul class="relative mt-16">
   {
-    EXPERIENCES.map(({ date, title, company, description, tags }) => (
+    experiences.map(({ date, title, company, description, tags }) => (
       <div class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
         <div class="relative pb-12 md:col-span-2">
           <div class="sticky top-0">

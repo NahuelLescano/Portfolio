@@ -1,3 +1,10 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <article
   class="flex flex-col items-center justify-center gap-4 md:gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
 >
@@ -5,22 +12,12 @@
     class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-200 [&>p>strong]:font-normal
         text-pretty order-2 md:order-1 text-center md:text-left"
   >
-    <p class="text-sm md:text-base lg:text-lg text-pretty">
-      Mi perfil es un híbrido entre la ingeniería y el desarrollo ágil. Comencé
-      mi formación en <strong>Ingeniería en Informática (UBA)</strong>, donde
-      forjé una sólida base lógica, y consolidé mi perfil técnico graduándome
-      como <strong>Analista de Sistemas en ORT</strong>. Complementé esta
-      formación académica con la intensidad de un bootcamp, lo que me dio la
-      versatilidad para adaptarme rápido a entornos cambiantes. Hoy, aplico esa
-      combinación de teoría y práctica desarrollando soluciones reales con <strong
-        >Python, React y Bases de Datos</strong
-      >. Me motiva escribir código limpio, escalable y que resuelva problemas de
-      negocio concretos.
+    <p class="text-sm md:text-base lg:text-lg text-pretty" set:html={t('about.description')}>
     </p>
   </aside>
 
   <img
-    src="./profile.webp"
+    src="/profile.webp"
     alt="Nahuel Profile Picture"
     width="200"
     height="200"

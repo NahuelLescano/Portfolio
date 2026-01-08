@@ -1,9 +1,15 @@
 ---
 import SocialContainer from "@/components/SocialContainer.astro";
-import { CV_URL, EMAIL, LINKEDIN_URL } from "@/consts/links";
+import { CV_URL, CV_URL_EN, EMAIL, LINKEDIN_URL } from "@/consts/links";
 import CvIcon from "@/icons/CvIcon.astro";
 import LinkedInIcon from "@/icons/LinkedInIcon.astro";
 import MailIcon from "@/icons/MailIcon.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const cv = lang === "es" ? CV_URL : CV_URL_EN;
+
+const t = useTranslations(lang);
 ---
 
 <div class="max-w-4xl">
@@ -11,7 +17,7 @@ import MailIcon from "@/icons/MailIcon.astro";
     class="flex flex-col md:flex-row gap-4 md:gap-8 items-center md:items-start"
   >
     <img
-      src="./profile.webp"
+      src="/profile.webp"
       alt="Nahuel Profile Picture"
       class="rounded-lg size-32 md:size-52 object-cover flex-shrink-0"
     />
@@ -19,18 +25,13 @@ import MailIcon from "@/icons/MailIcon.astro";
       <h3
         class="text-lg md:text-xl lg:text-5xl font-bold tracking-tight text-gray-800 dark:text-white"
       >
-        Hola, soy Nahuel
+        {t("hero.greeting")}
       </h3>
       <p
         class="mt-4 md:mt-6 text-lg md:text-xl text-gray-800 dark:text-gray-200 text-pretty
                 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold [&>strong]:text-xl"
-      >
-        Soy <strong>Analista en Sistemas y desarrollador full stack</strong>.
-        Especializado en construir aplicaciones web y móviles eficientes y
-        escalables. Combino una sólida formación académica (ORT/UBA) con
-        experiencia real en
-        <strong>React, Python, .NET y arquitecturas cloud</strong>
-      </p>
+        set:html={t("hero.description")}
+      />
     </div>
   </div>
 
@@ -39,15 +40,15 @@ import MailIcon from "@/icons/MailIcon.astro";
   >
     <SocialContainer href={EMAIL.url}>
       <MailIcon class="size-6" />
-      Contactame
+      {t("hero.contact")}
     </SocialContainer>
     <SocialContainer href={LINKEDIN_URL.url}>
       <LinkedInIcon class="size-6" />
       LinkedIn
     </SocialContainer>
-    <SocialContainer href={CV_URL.url}>
+    <SocialContainer href={cv.url}>
       <CvIcon class="size-6" />
-      Descargar CV
+      {t("hero.downloadCv")}
     </SocialContainer>
   </nav>
 </div>

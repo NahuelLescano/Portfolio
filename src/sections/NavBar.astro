@@ -1,17 +1,33 @@
 ---
-import { NAV_ITEMS } from "@/consts/navItems";
+import LanguageSelector from "@/components/LanguageSelector.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navItems = [
+  { title: t("nav.home"), label: "inicio", url: "#top" },
+  { title: t("nav.experience"), label: "experiencia", url: "#experience" },
+  { title: t("nav.projects"), label: "proyectos", url: "#projects" },
+  { title: t("nav.about"), label: "sobre-mi", url: "#about-me" },
+  {
+    title: t("nav.contact"),
+    label: "contacto",
+    url: "mailto:nahuellescano1012@gmail.com",
+  },
+];
 ---
 
 <header
   class="fixed top-0 z-10 flex justify-center items-center text-center w-full mx-auto mt-2 px-2"
 >
   <nav
-    class="flex px-2 md:px-3 text-sm md:text-lg font-medium rounded-full text-gray-300 dark:text-gray-100 justify-center items-center max-w-full overflow-hidden"
+    class="flex px-2 md:px-3 text-sm md:text-lg font-medium rounded-full text-gray-300 dark:text-gray-100 justify-between items-center max-w-full overflow-hidden"
   >
     <ul class="flex gap-1 md:gap-4 list-none">
       <li class="px-1 md:px-4">
         {
-          NAV_ITEMS.map(({ url, label, title }) => (
+          navItems.map(({ url, label, title }) => (
             <a
               href={url}
               aria-label={label}
@@ -23,6 +39,9 @@ import { NAV_ITEMS } from "@/consts/navItems";
         }
       </li>
     </ul>
+    <div class="ml-4">
+      <LanguageSelector />
+    </div>
   </nav>
 </header>
 
@@ -106,7 +125,6 @@ import { NAV_ITEMS } from "@/consts/navItems";
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
-          // Mapear IDs de secciones a labels del nav
           let activeLabel = "";
           switch (sectionId) {
             case "experience":
@@ -143,7 +161,7 @@ import { NAV_ITEMS } from "@/consts/navItems";
 
     navItems.forEach((item) => {
       const href = item.getAttribute("href");
-      if ((href && href.startsWith("#")) || href?.includes("/#")) {
+      if (href && href.startsWith("#") && !href.includes("/")) {
         item.addEventListener("click", (_e) => {
           const label = item.getAttribute("aria-label");
           if (label && label !== "contacto") {

@@ -1,8 +1,16 @@
 ---
 import { EMAIL, LINKS } from "@/consts/links";
-import { EXPERIENCE, PROJECTS } from "@/consts/navItems";
+import { getLangFromUrl, useTranslations } from "@/i18n/ui";
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
+
+// Crear enlaces de navegación traducidos
+const footerNav = [
+  { title: t('nav.experience'), label: "experiencia", url: "#experience" },
+  { title: t('nav.projects'), label: "proyectos", url: "#projects" },
+];
 ---
 
 <footer
@@ -34,23 +42,20 @@ const currentYear = new Date().getFullYear();
         }
       </span>
       <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-        Casi todos los derechos reservados.
+        {t('footer.rights')}
       </p>
     </div>
 
     <ul
       class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 text-xs sm:text-sm font-medium text-zinc-700 dark:text-white/90 [&_a]:hover:underline [&_a]:hover:text-blue-500 dark:[&_a]:hover:text-blue-400 [&_a]:transition-colors"
     >
-      <li>
-        <a href={EXPERIENCE.url} aria-label={EXPERIENCE.label}>
-          {EXPERIENCE.title}
-        </a>
-      </li>
-      <li>
-        <a href={PROJECTS.url} aria-label={PROJECTS.label}>
-          {PROJECTS.title}
-        </a>
-      </li>
+      {footerNav.map(({ title, label, url }) => (
+        <li>
+          <a href={url} aria-label={label}>
+            {title}
+          </a>
+        </li>
+      ))}
       <li>
         <a href={EMAIL.url} aria-label={EMAIL.label}>
           {EMAIL.title}

@@ -1,0 +1,43 @@
+---
+import SectionContainer from "@/components/SectionContainer.astro";
+import TitleContainer from "@/components/TitleContainer.astro";
+import ProfileIcon from "@/icons/ProfileIcon.astro";
+import PromptIcon from "@/icons/PromptIcon.astro";
+import VimIcon from "@/icons/VimIcon.astro";
+
+import AboutMe from "@/sections/AboutMe.astro";
+import Experience from "@/sections/Experience.astro";
+import Hero from "@/sections/Hero.astro";
+import Projects from "@/sections/Projects.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<main class="px-4">
+  <SectionContainer class="py-16 md:py-36">
+    <Hero />
+  </SectionContainer>
+  <SectionContainer id="experience" class="space-y-24">
+    <TitleContainer>
+      <PromptIcon class="size-8" />
+      {t('sections.experience')}
+    </TitleContainer>
+    <Experience />
+  </SectionContainer>
+  <SectionContainer id="projects" class="mt-16">
+    <TitleContainer>
+      <VimIcon class="size-8" />
+      {t('sections.projects')}
+    </TitleContainer>
+    <Projects />
+  </SectionContainer>
+  <SectionContainer id="about-me" class="mt-16">
+    <TitleContainer>
+      <ProfileIcon />
+      {t('sections.about')}
+    </TitleContainer>
+    <AboutMe />
+  </SectionContainer>
+</main>

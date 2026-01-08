@@ -1,6 +1,7 @@
 ---
 import LinkButtonContainer from "@/components/LinkButtonContainer.astro";
 import { PROJECTS } from "@/consts/projects";
+import { PROJECTS_EN } from "@/consts/projects-en";
 import AndroidIcon from "@/icons/AndroidIcon.astro";
 import CssIcon from "@/icons/CssIcon.astro";
 import ExpressIcon from "@/icons/ExpressIcon.astro";
@@ -16,6 +17,10 @@ import TailwindIcon from "@/icons/TailwindIcon.astro";
 import TypescriptIcon from "@/icons/TypescriptIcon.astro";
 import ViteIcon from "@/icons/ViteIcon.astro";
 import ZustandIcon from "@/icons/ZustandIcon.astro";
+import { getLangFromUrl } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const projects = lang === "es" ? PROJECTS : PROJECTS_EN;
 
 const iconMap = {
   ReactIcon: ReactIcon,
@@ -36,7 +41,7 @@ const iconMap = {
 
 <div class="flex flex-col gap-8">
   {
-    PROJECTS.map(({ image, alt, title, description, tags, github, link }) => (
+    projects.map(({ image, alt, title, description, tags, github, link }) => (
       <article class="flex flex-col group space-x-0 space-y-8 md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
           <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">

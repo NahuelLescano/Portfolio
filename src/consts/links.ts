@@ -3,7 +3,13 @@ import type { Url } from "@/types/urls.d";
 export const CV_URL: Url = {
   title: "CV",
   label: "cv",
-  url: "./CV_Nahuel.pdf",
+  url: "/CV_Nahuel.pdf",
+} as const;
+
+export const CV_URL_EN: Url = {
+  title: "CV",
+  label: "cv",
+  url: "/CV_Nahuel_En.pdf",
 } as const;
 
 export const GITHUB_URL: Url = {

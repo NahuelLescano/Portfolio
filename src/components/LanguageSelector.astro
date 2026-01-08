@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl } from "@/i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+function getAlternativePath(currentLang: string, currentPath: string) {
+  if (currentLang === "en") {
+    if (
+      currentPath === "/" ||
+      currentPath === "/en" ||
+      currentPath === "/en/"
+    ) {
+      return "/es/";
+    }
+    return currentPath.replace("/en/", "/es/");
+  } else {
+    if (currentPath === "/es" || currentPath === "/es/") {
+      return "/";
+    }
+    return currentPath.replace("/es/", "/en/");
+  }
+}
+
+const alternativePath = getAlternativePath(lang, currentPath);
+---
+
+<div class="flex items-center gap-2 text-sm">
+  <span class="text-gray-600 dark:text-gray-300">
+    {lang === "en" ? "EN" : "ES"}
+  </span>
+  <span class="text-gray-400">|</span>
+  <a
+    href={alternativePath}
+    class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+  >
+    {lang === "en" ? "ES" : "EN"}
+  </a>
+</div>
+
