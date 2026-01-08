@@ -1,7 +1,12 @@
-type LinkName = 'Inicio' | 'Experiencia' | 'Proyectos' | 'Sobre mi' | 'Contacto'
+type LinkName =
+  | "Inicio"
+  | "Experiencia"
+  | "Proyectos"
+  | "Sobre mi"
+  | "Contacto";
 
 export interface Link {
-  title: LinkName
-  label: string
-  url: string
+  title: LinkName;
+  label: string;
+  url: string;
 }

@@ -1,42 +1,42 @@
 ---
-import SectionContainer from '@/components/SectionContainer.astro'
-import TitleContainer from '@/components/TitleContainer.astro'
-import ProfileIcon from '@/icons/ProfileIcon.astro'
-import PromptIcon from '@/icons/PromptIcon.astro'
-import VimIcon from '@/icons/VimIcon.astro'
+import SectionContainer from "@/components/SectionContainer.astro";
+import TitleContainer from "@/components/TitleContainer.astro";
+import ProfileIcon from "@/icons/ProfileIcon.astro";
+import PromptIcon from "@/icons/PromptIcon.astro";
+import VimIcon from "@/icons/VimIcon.astro";
 
-import Layout from '@/layouts/Layout.astro'
-import AboutMe from '@/sections/AboutMe.astro'
-import Experience from '@/sections/Experience.astro'
-import Hero from '@/sections/Hero.astro'
-import Projects from '@/sections/Projects.astro'
+import Layout from "@/layouts/Layout.astro";
+import AboutMe from "@/sections/AboutMe.astro";
+import Experience from "@/sections/Experience.astro";
+import Hero from "@/sections/Hero.astro";
+import Projects from "@/sections/Projects.astro";
 ---
 
 <Layout>
-    <main class="px-4">
-        <SectionContainer class="py-16 md:py-36">
-            <Hero />
-        </SectionContainer>
-        <SectionContainer id="experience" class="space-y-24">
-            <TitleContainer>
-                <PromptIcon class="size-8" />
-                Experiencia laboral
-            </TitleContainer>
-            <Experience />
-        </SectionContainer>
-        <SectionContainer id="projects" class="mt-16">
-            <TitleContainer>
-                <VimIcon class="size-8" />
-                Proyectos
-            </TitleContainer>
-            <Projects />
-        </SectionContainer>
-        <SectionContainer id="about-me" class="mt-16">
-            <TitleContainer>
-                <ProfileIcon />
-                Sobre Mi
-            </TitleContainer>
-            <AboutMe />
-        </SectionContainer>
-    </main>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero />
+    </SectionContainer>
+    <SectionContainer id="experience" class="space-y-24">
+      <TitleContainer>
+        <PromptIcon class="size-8" />
+        Experiencia laboral
+      </TitleContainer>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="projects" class="mt-16">
+      <TitleContainer>
+        <VimIcon class="size-8" />
+        Proyectos
+      </TitleContainer>
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="about-me" class="mt-16">
+      <TitleContainer>
+        <ProfileIcon />
+        Sobre Mi
+      </TitleContainer>
+      <AboutMe />
+    </SectionContainer>
+  </main>
 </Layout>
