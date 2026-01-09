@@ -1,5 +1,6 @@
 ---
 import LinkButtonContainer from "@/components/LinkButtonContainer.astro";
+import IconsMap from "@/components/IconsMap.astro";
 import { PROJECTS } from "@/consts/projects";
 import { PROJECTS_EN } from "@/consts/projects-en";
 import AndroidIcon from "@/icons/AndroidIcon.astro";
@@ -58,21 +59,7 @@ const iconMap = {
             {title}
           </h2>
           <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
-              {tags.map(({ icon, class: className, name }) => {
-                const IconComponent = iconMap[icon as keyof typeof iconMap];
-                return (
-                  <li>
-                    <span
-                      class={`${className} flex gap-x-2 rounded-full text-xs py-1 px-2 items-center`}
-                    >
-                      <IconComponent class="size-4" />
-                      {name}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
+            <IconsMap tags={tags} iconMap={iconMap} />
             <div class="mt-2 text-gray-600 dark:text-gray-200 text-pretty">
               {description}
             </div>

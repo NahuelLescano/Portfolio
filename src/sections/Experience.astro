@@ -7,6 +7,7 @@ import ExpressIcon from "@/icons/ExpressIcon.astro";
 import FastapiIcon from "@/icons/FastapiIcon.astro";
 import SqlalchemyIcon from "@/icons/SqlalchemyIcon.astro";
 import DockerIcon from "@/icons/DockerIcon.astro";
+import IconsMap from "@/components/IconsMap.astro";
 import { getLangFromUrl } from "@/i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
@@ -44,29 +45,7 @@ const iconMap = {
 
         <section class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3 text-pretty">
           {description}
-          <footer class="mt-4">
-            <ul class="flex flex-row flex-wrap gap-2">
-              {tags.map(({ icon, class: className, name }) => {
-                const IconComponent = iconMap[icon as keyof typeof iconMap];
-                return (
-                  <li>
-                    <span
-                      class={`${className} flex gap-x-2 rounded-full text-xs py-1 px-2 items-center`}
-                    >
-                      {IconComponent ? (
-                        <IconComponent class="size-4" />
-                      ) : (
-                        <span class="size-4 flex items-center justify-center text-xs">
-                          •
-                        </span>
-                      )}
-                      {name}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </footer>
+          <IconsMap tags={tags} iconMap={iconMap} />
         </section>
       </div>
     ))

@@ -1,0 +1,29 @@
+---
+const { tags, iconMap } = Astro.props;
+---
+
+<footer class="mt-4">
+  <ul class="flex flex-row flex-wrap gap-2">
+    {
+      tags.map(({ icon, class: className, name }) => {
+        const IconComponent = iconMap[icon as keyof typeof iconMap];
+        return (
+          <li>
+            <span
+              class={`${className} flex gap-x-2 rounded-full text-xs py-1 px-2 items-center`}
+            >
+              {IconComponent ? (
+                <IconComponent class="size-4" />
+              ) : (
+                <span class="size-4 flex items-center justify-center text-xs">
+                  •
+                </span>
+              )}
+              {name}
+            </span>
+          </li>
+        );
+      })
+    }
+  </ul>
+</footer>
