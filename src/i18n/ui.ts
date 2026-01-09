@@ -54,19 +54,19 @@ export const ui = {
   "footer.rights": {
     en: "Almost all rights reserved.",
     es: "Casi todos los derechos reservados.",
-  }
+  },
 } as const;
 
 export type UIKeys = keyof typeof ui;
 export type Languages = keyof (typeof ui)[UIKeys];
 
-export function getLangFromUrl(url: URL) {
+export const getLangFromUrl = (url: URL) => {
   const [, lang] = url.pathname.split("/");
   if (lang in ui["nav.experience"]) return lang as Languages;
   return "en";
-}
+};
 
-export function useTranslations(lang: Languages) {
+export const useTranslations = (lang: Languages) => {
   return function t(key: UIKeys) {
     return ui[key][lang] || ui[key]["en"];
   };

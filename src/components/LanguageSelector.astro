@@ -4,7 +4,7 @@ import { getLangFromUrl } from "@/i18n/ui";
 const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 
-function getAlternativePath(currentLang: string, currentPath: string) {
+const getAlternativePath = (currentLang: string, currentPath: string) => {
   if (currentLang === "en") {
     if (
       currentPath === "/" ||
@@ -20,21 +20,35 @@ function getAlternativePath(currentLang: string, currentPath: string) {
     }
     return currentPath.replace("/es/", "/en/");
   }
-}
+};
 
 const alternativePath = getAlternativePath(lang, currentPath);
 ---
 
-<div class="flex items-center gap-2 text-sm">
-  <span class="text-gray-600 dark:text-gray-300">
-    {lang === "en" ? "EN" : "ES"}
-  </span>
-  <span class="text-gray-400">|</span>
-  <a
-    href={alternativePath}
-    class="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+<div class="relative inline-block">
+  <div
+    class="flex items-center bg-gray-200 dark:bg-gray-700 rounded-full p-1 transition-colors"
   >
-    {lang === "en" ? "ES" : "EN"}
-  </a>
-</div>
+    <a
+      href={lang === "es" ? alternativePath : "/es/"}
+      class={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+        lang === "es"
+          ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm"
+          : "text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-600/50"
+      }`}
+    >
+      ES
+    </a>
 
+    <a
+      href={lang === "en" ? alternativePath : "/en/"}
+      class={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
+        lang === "en"
+          ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-sm"
+          : "text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-600/50"
+      }`}
+    >
+      EN
+    </a>
+  </div>
+</div>
