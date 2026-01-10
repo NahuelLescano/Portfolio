@@ -13,7 +13,7 @@ export const ui = {
   },
   "nav.about": {
     en: "About",
-    es: "Acerca de",
+    es: "Sobre Mi",
   },
   "nav.contact": {
     en: "Contact",
