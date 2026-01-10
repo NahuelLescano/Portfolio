@@ -16,8 +16,8 @@
 		"astro": "5.16.6",
 		"tailwindcss": "^4.1.11"
 	},
-	"description": "Migration of portfolio to Astro",
-	"keywords": [],
+	"description": "Personal portfolio",
+	"keywords": ["astro", "bun", "html", "css", "tailwindcss", "web dev"],
 	"author": "Nahuel Lescano",
 	"license": "ISC",
 	"devDependencies": {
