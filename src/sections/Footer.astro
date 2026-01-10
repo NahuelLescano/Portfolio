@@ -1,12 +1,13 @@
 ---
-import { EMAIL, LINKS } from "@/consts/links";
+import { EMAIL, EMAIL_EN, LINKS } from "@/consts/links";
 import { getLangFromUrl, useTranslations } from "@/i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
+const emailInfo = lang === "es" ? EMAIL : EMAIL_EN;
+
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 
-// Crear enlaces de navegación traducidos
 const footerNav = [
   { title: t('nav.experience'), label: "experiencia", url: "#experience" },
   { title: t('nav.projects'), label: "proyectos", url: "#projects" },
@@ -57,8 +58,8 @@ const footerNav = [
         </li>
       ))}
       <li>
-        <a href={EMAIL.url} aria-label={EMAIL.label}>
-          {EMAIL.title}
+        <a href={emailInfo.url} aria-label={emailInfo.label}>
+          {emailInfo.title}
         </a>
       </li>
     </ul>
