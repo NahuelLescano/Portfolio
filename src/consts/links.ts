@@ -1,4 +1,4 @@
-import type { Url } from "@/types/urls.d";
+import type { Url } from "@/types/url.d";
 
 export const CV_URL: Url = {
   title: "CV",
@@ -36,4 +36,10 @@ export const EMAIL: Url = {
   url: "mailto:nahuellescano1012@gmail.com",
 } as const;
 
-export const LINKS: Url[] = [GITHUB_URL, LINKEDIN_URL, X_URL, EMAIL] as const;
+export const EMAIL_EN: Url = {
+  title: "Contact",
+  label: "contact",
+  url: "mailto:nahuellescano1012@gmail.com",
+} as const;
+
+export const LINKS: Url[] = [GITHUB_URL, LINKEDIN_URL, X_URL] as const;
