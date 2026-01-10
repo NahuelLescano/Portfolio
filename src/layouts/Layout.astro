@@ -10,24 +10,19 @@ import "@fontsource-variable/onest";
 type Lang = "es" | "en";
 
 interface Props {
-  description?: string;
-  title?: string;
-  lang?: Lang;
+  description: string;
+  title: string;
+  lang: Lang;
   url?: string;
-  // path starting with '/'
   ogImage?: string;
-  twitterImage?: string;
-  linkedinImage?: string;
 }
 
 const {
-  description = "Contratame para crear tu aplicación web o móvil. Desarrollador web con React o Vue. Desarrollo backend",
-  title = "Porfolio de Nahuel - Fullstack developer junior",
-  lang = "es",
+  description,
+  title,
+  lang,
   url = "https://portfolio-nahuel-lescano.vercel.app/",
   ogImage = "/profile.webp",
-  twitterImage = "/profile.webp",
-  linkedinImage = "/profile.webp",
 } = Astro.props;
 ---
 
@@ -85,6 +80,9 @@ const {
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Porfolio de Nahuel" />
 
+    <meta property="og:locale" content="en_EN" />
+    <meta property="og:site_name" content="Nahuel Lescano portfolio" />
+
     <meta property="article:author" content="Nahuel Lescano" />
     <meta property="profile:first_name" content="Nahuel" />
     <meta property="profile:last_name" content="Lescano" />
@@ -94,14 +92,8 @@ const {
     <meta name="twitter:creator" content="@nahuel0495" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${url}${twitterImage}`} />
+    <meta name="twitter:image" content= "https://x.com/nahuel0495/photo" />
 
-    <!-- og meta tags for linkedin -->
-    <meta name="linkedin:title" content={title} />
-    <meta name="linkedin:description" content={description} />
-    <meta name="linkedin:image" content={`${url}${linkedinImage}`} />
-    <meta name="linkedin:url" content={url} />
-    <meta name="linkedin:site_name" content="Porfolio de Nahuel" />
   </head>
   <body>
     <NavBar />
